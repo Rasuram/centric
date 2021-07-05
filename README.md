@@ -33,14 +33,14 @@ Swagger
 
 * You can access from the following URL:
 
-  [http://localhost:8080/products/swagger-ui.html][1]
+  [http://localhost:8080/swagger-ui.html][1]
 
 H2 Database
 ---
 
 * If you prefer you can use any database client, else, you can access from the following URL:
 
-1. Go to: [http://localhost:8080/products/h2-console][2]
+1. Go to: [http://localhost:8080/h2-console][2]
 2. Setting the following parameters:
 
 ```
@@ -56,7 +56,39 @@ Password     :
 
 ``
 swagger access  
-http://localhost:8080/swagger-ui.html#/product-controller 
+http://localhost:8080/swagger-ui.html#/product-controller
 
 ``
 http://localhost:8080/h2-console
+
+###how to test endpoints?
+
+1. Sample URL for all products fetch,
+   GET: http://localhost:8080/v1/products/list?categoryName=apparel
+
+with pagination:  
+http://localhost:8080/v1/products/list?categoryName=apparel&pageNo=0&pageSize=3  
+Added pagination concept, so you can fetch records whichever you interested between.
+
+
+2. for product creation
+   http://localhost:8080/v1/products/create
+
+   ````
+   EX: POST
+   body:
+   {
+   "name": "Red Shirt",
+   "description": "Red hugo boss shirt",
+   "brand": "Hugo Boss",
+   "tags": [
+   "red",
+   "shirt",
+   "slim fit"
+   ],
+   "category": "apparel"
+   }
+   ````
+
+
+
